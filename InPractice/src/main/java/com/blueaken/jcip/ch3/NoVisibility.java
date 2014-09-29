@@ -1,3 +1,5 @@
+package com.blueaken.jcip.ch3;
+
 /**
  * @author jianshen
  */
@@ -12,7 +14,7 @@ public class NoVisibility {
         }
     }
     public static void main(String[] args) {
-        for (int i=0; i<15; i++){
+        for (int i=0; i<10; i++){
             new ReaderThread().start();
             number = 42;
             ready = true;
