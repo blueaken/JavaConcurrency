@@ -6,7 +6,7 @@ import java.util.concurrent.CountDownLatch;
  * Author: blueaken
  * Date: 9/26/14 3:24 下午
  */
-public class TestHarness {
+public class TestCountDownLatch {
     public static long timeTasks(int nThreads, final Runnable task)
             throws InterruptedException {
         final CountDownLatch startGate = new CountDownLatch(1);
