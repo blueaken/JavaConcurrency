@@ -1,0 +1,61 @@
+init only:
+
+Starting Thread:Thread-5
+Background process successfully started.
+Starting Thread:Thread-6
+Background process successfully started.
+Starting Thread:Thread-7
+Waiting ... Thread-5
+Background process successfully started.
+
+Waiting ... Thread-7
+Total during time: 2 milliseconds
+Waiting ... Thread-6
+
+... suspended ...
+
+==========================
+
+init + destroy - with synchronized notify:
+
+1. use notify() as synchronized way
+
+Starting Thread:Thread-5
+Background process successfully started.
+Waiting ... Thread-5
+Starting Thread:Thread-6
+Background process successfully started.
+Starting Thread:Thread-7
+Waiting ... Thread-6
+Background process successfully started.
+Waiting ... Thread-7
+Start stopping processor threads in thread: main
+Page Repainting ... Thread-5
+Thread successfully stopped. Thread-5
+
+... suspended ...
+
+-------------------------------------------------
+
+2. use notifyAll() as synchronzied way
+
+Starting Thread:Thread-5
+Background process successfully started.
+Waiting ... Thread-5
+Starting Thread:Thread-6
+Background process successfully started.
+Waiting ... Thread-6
+Starting Thread:Thread-7
+Background process successfully started.
+Start stopping processor threads in thread: main
+Waiting ... Thread-7
+Page Repainting ... Thread-7
+Page Repainting ... Thread-5
+Page Repainting ... Thread-6
+Thread successfully stopped. Thread-5
+Thread successfully stopped. Thread-6
+Thread successfully stopped. Thread-7
+
+Total during time: 3 milliseconds
+
+conclusion: use notifyAll() where necessary for multiple version listener

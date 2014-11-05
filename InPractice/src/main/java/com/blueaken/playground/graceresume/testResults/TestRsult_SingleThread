@@ -1,0 +1,103 @@
+init only:
+
+Starting Thread:Thread-5
+Background process successfully started.
+
+Total during time: 2 milliseconds
+Waiting ... Thread-5
+
+... suspended ...
+
+==========================
+
+init + destroy - without synchronized notify:
+
+1. thread is already in waiting status
+
+Starting Thread:Thread-5
+Background process successfully started.
+Waiting ... Thread-5
+Start stopping processor thread in thread: main
+
+... suspended ...
+
+----------------------------------------------
+2. thread not yet in waiting status
+
+Starting Thread:Thread-5
+Background process successfully started.
+Start stopping processor thread in thread: main
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Thread successfully stopped. Thread-5
+
+Total during time: 1 milliseconds
+
+============================
+
+init + destroy - with synchronized notify:
+- no matter if thread is in waiting status or not
+
+Starting Thread:Thread-5
+Background process successfully started.
+Start stopping processor thread in thread: main
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Thread successfully stopped. Thread-5
+
+Total during time: 2 milliseconds
+
+============================
+init + flipStatus
+
+1. flipStatus after thread in waiting status
+
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+Page Repainting ... Thread-5
+Waiting ... Thread-5
+... looping ...
+
+2. flipStatus before thread in waiting status
+
+Starting Thread:Thread-5
+Background process successfully started.
+Waiting ... Thread-5
+Start fliping processor thread suspended status in thread: main
+
+Total during time: 1 milliseconds
+... suspended ...
+
+===========================
+
+init + flipStatus + destroy
+-always
+
+Starting Thread:Thread-5
+Background process successfully started.
+Start fliping processor thread suspended status in thread: main
+Waiting ... Thread-5
+Start stopping processor thread in thread: main
+Page Repainting ... Thread-5
+Thread successfully stopped. Thread-5
+
+Total during time: 2 milliseconds
+
+- conclusion:
+1. looks a terminate method is needed to call anyway to stop gracefully
+2. do not forget to add synchronized keyword on function with notify() call

@@ -15,7 +15,7 @@ public class SampleProcessor implements Runnable{
         this.threadSuspended = threadSuspended;
     }
 
-    public void terminate(){
+    public synchronized void terminate(){
         running = false;
         /*
         *  the target thread may already be suspended at the time that another thread tries to stop it. If the terminate
@@ -23,6 +23,7 @@ public class SampleProcessor implements Runnable{
          *  on the monitor), rather than exiting gracefully as it should.
         * */
 //        notify();
+        notifyAll(); //for multiple threads version listener
     }
 
     @Override
@@ -30,6 +31,8 @@ public class SampleProcessor implements Runnable{
         while (running){
             try{
                 System.out.println("Waiting ... " + Thread.currentThread().getName());
+
+                Thread.sleep(5000L);
 
                 synchronized(this) {
                     while (threadSuspended && running)
