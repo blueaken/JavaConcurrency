@@ -1,4 +1,4 @@
-package com.blueaken.playground;
+package com.blueaken.playground.gracestop;
 
 /**
  * @author jianshen
@@ -15,7 +15,7 @@ public class SampleProcessor implements Runnable{
         while (running){
             try{
                 System.out.println("Sleeping ... " + Thread.currentThread().getName());
-                Thread.sleep(10000l);
+                Thread.sleep(10000L);
                 System.out.println("Processing ... " + Thread.currentThread().getName());
             } catch (InterruptedException ie){
                 System.out.println("Thread Process Interrupted ... " + Thread.currentThread().getName());
