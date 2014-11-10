@@ -22,7 +22,9 @@ public class MyCallableTest {
         // spawn 10 jobs
         for(int i=0; i< 10; i++){
             Future<String> future = executor.submit(new MyCallable());
-            list.add(future);
+            list.add(future); //best way to use future and callable, if instead, trying to analyze the result back here
+                              //then it will wait till each thread complete, which is back to single thread mode. Sometimes
+                              //may need to add Thread.sleep() here to ensure the complete of every thread.
         }
 
         // print results
