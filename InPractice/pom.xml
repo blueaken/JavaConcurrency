@@ -16,6 +16,12 @@
             <version>2.6.9</version>
         </dependency>
 
+        <!-- add the right version of slf4j with the help of "mvn dependency:tree" -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.1</version>
+        </dependency>
     </dependencies>
 
 </project>
