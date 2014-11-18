@@ -10,7 +10,7 @@ import net.sf.ehcache.Element;
 public class enchcheDemo {
     public static void main(String[] args){
         //create cache manager with cache config name "sampleCache1"
-        CacheManager singletonManager = CacheManager.create("src/main/resources/cache/ehcache.xml");
+        CacheManager singletonManager = CacheManager.create();
         Cache cache = singletonManager.getCache("sampleCache1");
 
         //add Object into cache and read and print
