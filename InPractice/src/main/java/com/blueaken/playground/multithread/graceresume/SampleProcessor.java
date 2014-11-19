@@ -1,4 +1,4 @@
-package com.blueaken.playground.graceresume;
+package com.blueaken.playground.multithread.graceresume;
 
 /**
  * @author jianshen

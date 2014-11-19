@@ -1,4 +1,4 @@
-package com.blueaken.playground.gracestop;
+package com.blueaken.playground.multithread.gracestop;
 
 /**
  * @author jianshen

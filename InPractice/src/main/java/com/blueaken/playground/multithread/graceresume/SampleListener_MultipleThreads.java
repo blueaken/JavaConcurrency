@@ -1,4 +1,4 @@
-package com.blueaken.playground.graceresume;
+package com.blueaken.playground.multithread.graceresume;
 
 import java.util.ArrayList;
 import java.util.List;
