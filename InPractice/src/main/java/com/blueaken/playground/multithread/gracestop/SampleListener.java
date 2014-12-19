@@ -9,11 +9,10 @@ import java.util.Set;
  */
 public class SampleListener {
     private Thread thread = null;
-    private SampleProcessor processor = null;
+    private SampleProcessor processor = new SampleProcessor();
     private List<String> threads= new ArrayList();
 
     public void init(){
-        processor = new SampleProcessor();
         for (int i=0;i<5;i++){
             thread = new Thread(processor);
             threads.add(thread.getName());
